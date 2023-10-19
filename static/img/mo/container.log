@@ -1,0 +1,124 @@
+﻿2023-10-19 17:26:59.036   --- [ XNIO-1 task-28]  : ==>  Preparing: SELECT id, name, description, begin_time, end_time, create_by, create_time, is_delete, org_id, company_id, status, active_sms_template, qr_code_url, join_trigger_settings FROM health_workspace WHERE id = ? AND is_delete = 0 
+2023-10-19 17:26:59.039   --- [ XNIO-1 task-28]  : ==> Parameters: 1706475098992951298(String) 
+2023-10-19 17:26:59.040   --- [ XNIO-1 task-28]  : <==      Total: 1 
+2023-10-19 17:26:59.042   --- [ XNIO-1 task-28]  : addHealthUser 添加健管用户:{"idCard":"510521198912054374","companyName":"安岳","mobile":"15922926837","workSpaceId":"1706475098992951298","name":"汪年斌"} 
+2023-10-19 17:26:59.042   --- [ XNIO-1 task-28]  : --------------------------selectByIdCardAndOrg----------------------------- 
+2023-10-19 17:26:59.043   --- [ XNIO-1 task-28]  : Cache Hit Ratio [com.bsh.ih.health.dao.HealthUserDao]: 0.46153846153846156 
+2023-10-19 17:26:59.057   --- [ XNIO-1 task-28]  : ==>  Preparing: SELECT * FROM health_user WHERE id_card = ? AND org_id = ? ORDER BY create_time DESC 
+2023-10-19 17:26:59.058   --- [ XNIO-1 task-28]  : ==> Parameters: 510521198912054374(String), 81005726(Integer) 
+2023-10-19 17:26:59.061   --- [ XNIO-1 task-28]  : <==      Total: 2 
+2023-10-19 17:26:59.083   --- [ XNIO-1 task-28]  : ==>  Preparing: SELECT id_card, past_history, family_history, other, environment, life_info, health_info, is_delete, create_time, patient_info, company_name FROM health_user_profile WHERE id_card = ? 
+2023-10-19 17:26:59.084   --- [ XNIO-1 task-28]  : ==> Parameters: 510521198912054374(String) 
+2023-10-19 17:26:59.086   --- [ XNIO-1 task-28]  : <==      Total: 1 
+2023-10-19 17:26:59.098   --- [ XNIO-1 task-28]  : addHealthUser this.updateById(initHealthUser) 
+2023-10-19 17:26:59.127   --- [ XNIO-1 task-28]  : {"activeStatus":0,"companyName":"安岳","healthSource":"1","id":"1714919556734017538","idCard":"510521198912054374","mobile":"15922926837","name":"汪年斌","orgId":81005726,"sex":"1"} 
+2023-10-19 17:26:59.139   --- [ XNIO-1 task-28]  : ==>  Preparing: UPDATE health_user SET mobile = ?, id_card = ?, name = ?, health_source = ?, sex = ?, org_id = ?, company_name = ?, active_status = ? WHERE id = ? AND is_delete = 0 
+2023-10-19 17:26:59.140   --- [ XNIO-1 task-28]  : ==> Parameters: 15922926837(String), 510521198912054374(String), 汪年斌(String), 1(String), 1(String), 81005726(Integer), 安岳(String), 0(Integer), 1714919556734017538(String) 
+2023-10-19 17:26:59.145   --- [ XNIO-1 task-28]  : <==    Updates: 1 
+2023-10-19 17:26:59.163   --- [ XNIO-1 task-28]  : ==>  Preparing: UPDATE health_user_profile SET patient_info = ? WHERE id_card = ? 
+2023-10-19 17:26:59.164   --- [ XNIO-1 task-28]  : ==> Parameters: {"birthday":"1989-12-05","companyName":"安岳","healthCreateStatus":0,"idCard":"510521198912054374","idcardType":"1","isSignContract":0,"mobile":"15922926837 ","name":"汪年斌","sex":"1","updateTime":"2023-07-03","verified":0}(String), 510521198912054374(String) 
+2023-10-19 17:26:59.165   --- [ XNIO-1 task-28]  : <==    Updates: 1 
+2023-10-19 17:26:59.175   --- [ XNIO-1 task-28]  : ==>  Preparing: SELECT id, user_id, workspace_id, source, create_by, create_time, is_delete, activate, program_num, assessment_num, basic_send_num, basic_write_num, flow_form_send_num, flow_form_write_num, assessment_form_send_num, assessment_form_write_num, other_form_send_num, other_form_write_num, open_id, monitor_time FROM health_workspace_user WHERE is_delete = 0 AND (user_id = ?) 
+2023-10-19 17:26:59.176   --- [ XNIO-1 task-28]  : ==> Parameters: 1714919556734017538(String) 
+2023-10-19 17:26:59.178   --- [ XNIO-1 task-28]  : <==      Total: 0 
+2023-10-19 17:26:59.187   --- [ XNIO-1 task-28]  : SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1574413b] was not registered for synchronization because DataSource is not transactional 
+2023-10-19 17:26:59.201   --- [ XNIO-1 task-28]  : ==>  Preparing: INSERT INTO health_workspace_user (id, user_id, workspace_id, source, create_by, create_time, is_delete) VALUES (?, ?, ?, ?, ?, ?, ?) 
+2023-10-19 17:26:59.324   --- [ XNIO-1 task-28]  : ==> Parameters: 1714936168472141826(String), 1714919556734017538(String), 1706475098992951298(String), 1(String), 47(String), 2023-10-19 17:26:59.199(Timestamp), 0(Integer) 
+2023-10-19 17:26:59.330   --- [TaskExecutor-16]  : ------------------------activeUser-------------------------------- 
+2023-10-19 17:26:59.330   --- [TaskExecutor-16]  : 1714919556734017538 
+2023-10-19 17:26:59.330   --- [TaskExecutor-16]  : 开始激活时间2023-10-19 05:26:59 
+2023-10-19 17:26:59.332   --- [TaskExecutor-16]  : ==>  Preparing: SELECT id, name, description, begin_time, end_time, create_by, create_time, is_delete, org_id, company_id, status, active_sms_template, qr_code_url, join_trigger_settings FROM health_workspace WHERE id = ? AND is_delete = 0 
+2023-10-19 17:26:59.333   --- [TaskExecutor-16]  : ==> Parameters: 1706475098992951298(String) 
+2023-10-19 17:26:59.334   --- [TaskExecutor-16]  : <==      Total: 1 
+2023-10-19 17:26:59.338   --- [TaskExecutor-16]  : ==>  Preparing: SELECT id, account_id, mobile, id_card, status, name, health_source, sex, org_id, company_name, company_id, third_id, create_time, create_by, is_delete, active_status, questionnaire_status, questionnaire_time, phone_status, health_report_time, house_report_time, file_report_time, hand_report_time, health_create_status, remark, physical_notify_time, last_evaluation_time, update_time FROM health_user WHERE id = ? AND is_delete = 0 
+2023-10-19 17:26:59.339   --- [TaskExecutor-16]  : ==> Parameters: 1714919556734017538(String) 
+2023-10-19 17:26:59.341   --- [TaskExecutor-16]  : <==      Total: 1 
+2023-10-19 17:26:59.347   --- [TaskExecutor-16]  : ==>  Preparing: SELECT id, user_id, workspace_id, source, create_by, create_time, is_delete, activate, program_num, assessment_num, basic_send_num, basic_write_num, flow_form_send_num, flow_form_write_num, assessment_form_send_num, assessment_form_write_num, other_form_send_num, other_form_write_num, open_id, monitor_time FROM health_workspace_user WHERE is_delete = 0 AND (user_id = ? AND workspace_id = ?) 
+2023-10-19 17:26:59.347   --- [TaskExecutor-16]  : ==> Parameters: 1714919556734017538(String), 1706475098992951298(String) 
+2023-10-19 17:26:59.350   --- [TaskExecutor-16]  : <==      Total: 1 
+2023-10-19 17:26:59.350   --- [TaskExecutor-16]  : 用户加入工作区激活 activeUser:  1714919556734017538,1706475098992951298, 
+2023-10-19 17:26:59.362   --- [TaskExecutor-16]  : ==>  Preparing: UPDATE health_workspace_user SET activate = ? WHERE is_delete = 0 AND (workspace_id = ? AND user_id = ?) 
+2023-10-19 17:26:59.362   --- [TaskExecutor-16]  : ==> Parameters: 0(Integer), 1706475098992951298(String), 1714919556734017538(String) 
+2023-10-19 17:26:59.365   --- [TaskExecutor-16]  : <==    Updates: 1 
+2023-10-19 17:26:59.449   --- [ XNIO-1 task-30]  : ==>  Preparing: SELECT COUNT(1) FROM ( SELECT user.name, user.sex, user.company_name, user.health_source, user.id_card, user.id, (substring(NOW(), 1, 4) - SUBSTRING(user.id_card, 7, 4) - (if(DATE_FORMAT(NOW(), '%m%d') - SUBSTRING(user.id_card, 11, 4) > 0, 0, 1))) AS age, user.mobile, user.create_time, user.questionnaire_status, user.update_time, user.questionnaire_time, user.phone_status, user.health_create_status, user.health_report_time, user.house_report_time, user.file_report_time, user.hand_report_time, user.physical_notify_time, GROUP_CONCAT(program.name) AS programName, GROUP_CONCAT(program.create_by) AS staff_id, GROUP_CONCAT(program.create_time) AS program_create_time, GROUP_CONCAT(program.valid_time) AS valid_time, GROUP_CONCAT(wsu.source) AS workspace_source, GROUP_CONCAT(wsu.activate) AS active_status FROM health_user user LEFT JOIN health_workspace_user wsu ON user.id = wsu.user_id LEFT JOIN health_intervene_program program ON user.id = program.user_id AND program.`status` = 0 AND program.is_delete = 0 AND program.workspace_id = ? WHERE user.is_delete = 0 AND user.org_id = ? AND wsu.is_delete = 0 AND wsu.workspace_id = ? GROUP BY user.id ORDER BY user.create_time DESC ) TOTAL 
+2023-10-19 17:26:59.450   --- [ XNIO-1 task-30]  : ==> Parameters: 1706475098992951298(String), 81005726(Integer), 1706475098992951298(String) 
+2023-10-19 17:26:59.454   --- [ XNIO-1 task-30]  : ==>  Preparing: SELECT user.name, user.sex, user.company_name, user.health_source, user.id_card, user.id, (substring(NOW(), 1, 4) - SUBSTRING(user.id_card, 7, 4) - (if(DATE_FORMAT(NOW(), '%m%d') - SUBSTRING(user.id_card, 11, 4) > 0, 0, 1))) AS age, user.mobile, user.create_time, user.questionnaire_status, user.update_time, user.questionnaire_time, user.phone_status, user.health_create_status, user.health_report_time, user.house_report_time, user.file_report_time, user.hand_report_time, user.physical_notify_time, GROUP_CONCAT(program.name) AS programName, GROUP_CONCAT(program.create_by) AS staff_id, GROUP_CONCAT(program.create_time) AS program_create_time, GROUP_CONCAT(program.valid_time) AS valid_time, GROUP_CONCAT(wsu.source) AS workspace_source, GROUP_CONCAT(wsu.activate) AS active_status FROM health_user user LEFT JOIN health_workspace_user wsu ON user.id = wsu.user_id LEFT JOIN health_intervene_program program ON user.id = program.user_id AND program.`status` = 0 AND program.is_delete = 0 AND program.workspace_id = ? WHERE user.is_delete = 0 AND user.org_id = ? AND wsu.is_delete = 0 AND wsu.workspace_id = ? GROUP BY user.id ORDER BY user.create_time DESC LIMIT ?,? 
+2023-10-19 17:26:59.455   --- [ XNIO-1 task-30]  : ==> Parameters: 1706475098992951298(String), 81005726(Integer), 1706475098992951298(String), 0(Long), 10(Long) 
+2023-10-19 17:26:59.459   --- [ XNIO-1 task-30]  : <==      Total: 6 
+2023-10-19 17:26:59.462   --- [ XNIO-1 task-30]  : ==>  Preparing: SELECT id, name, description, begin_time, end_time, create_by, create_time, is_delete, org_id, company_id, status, active_sms_template, qr_code_url, join_trigger_settings FROM health_workspace WHERE is_delete = 0 AND (org_id = ?) 
+2023-10-19 17:26:59.463   --- [ XNIO-1 task-30]  : ==> Parameters: 81005726(Integer) 
+2023-10-19 17:26:59.468   --- [ XNIO-1 task-30]  : <==      Total: 102 
+2023-10-19 17:26:59.472   --- [ XNIO-1 task-31]  : ==>  Preparing: SELECT COUNT(1) FROM health_workspace wp WHERE 1 = 1 AND wp.is_delete = 0 AND wp.org_id = ? AND wp.status = ? 
+2023-10-19 17:26:59.473   --- [ XNIO-1 task-31]  : ==> Parameters: 81005726(Integer), 2(Integer) 
+2023-10-19 17:26:59.475   --- [ XNIO-1 task-31]  : ==>  Preparing: SELECT wp.id, wp.name, wp.org_id, wp.description, wp.begin_time, wp.end_time, wp.create_time, wp.status, wp.qr_code_url FROM health_workspace wp WHERE 1 = 1 AND wp.is_delete = 0 AND wp.org_id = ? AND wp.status = ? ORDER BY wp.create_time DESC LIMIT ?,? 
+2023-10-19 17:26:59.476   --- [ XNIO-1 task-31]  : ==> Parameters: 81005726(Integer), 2(Integer), 0(Long), 10(Long) 
+2023-10-19 17:26:59.481   --- [  XNIO-1 task-1]  : ==>  Preparing: SELECT COUNT(1) FROM health_workspace wp WHERE 1 = 1 AND wp.is_delete = 0 AND wp.org_id = ? AND wp.status = ? 
+2023-10-19 17:26:59.484   --- [ XNIO-1 task-31]  : <==      Total: 10 
+2023-10-19 17:26:59.487   --- [ XNIO-1 task-31]  : ==>  Preparing: SELECT id, workspace_id, staff_id, is_contact, create_time, is_delete FROM health_workspace_staff WHERE is_delete = 0 AND (workspace_id IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)) 
+2023-10-19 17:26:59.488   --- [ XNIO-1 task-31]  : ==> Parameters: 1704010352619974657(String), 1700045575715835905(String), 1698884943750770689(String), 1698884565017702401(String), 1691016364644773889(String), 1690998990726115329(String), 1690988650445549570(String), 1688389229232672769(String), 1686973736814792706(String), 1685995961425735682(String) 
+2023-10-19 17:26:59.489   --- [  XNIO-1 task-1]  : ==> Parameters: 81005726(Integer), 1(Integer) 
+2023-10-19 17:26:59.491   --- [ XNIO-1 task-31]  : <==      Total: 17 
+2023-10-19 17:26:59.495   --- [  XNIO-1 task-1]  : ==>  Preparing: SELECT wp.id, wp.name, wp.org_id, wp.description, wp.begin_time, wp.end_time, wp.create_time, wp.status, wp.qr_code_url FROM health_workspace wp WHERE 1 = 1 AND wp.is_delete = 0 AND wp.org_id = ? AND wp.status = ? ORDER BY wp.create_time DESC LIMIT ?,? 
+2023-10-19 17:26:59.495   --- [  XNIO-1 task-1]  : ==> Parameters: 81005726(Integer), 1(Integer), 0(Long), 10(Long) 
+2023-10-19 17:26:59.497   --- [ XNIO-1 task-30]  : ==>  Preparing: SELECT user_id, `status`, count(`status`) AS num FROM health_intervene_program WHERE is_delete = 0 AND user_id IN (?, ?, ?, ?, ?, ?) GROUP BY user_id, status 
+2023-10-19 17:26:59.498   --- [ XNIO-1 task-30]  : ==> Parameters: 1714919556734017538(String), 1714171190543007745(String), 1711565864450543617(String), 1710569518117445634(String), 1710469309668548609(String), 1706608359618523137(String) 
+2023-10-19 17:26:59.499   --- [  XNIO-1 task-1]  : <==      Total: 10 
+2023-10-19 17:26:59.502   --- [ XNIO-1 task-31]  : 获取keys:[1645705674207920129, 1429985532965228545, 1645596615802748929, 1685884527673200641, 1379984341899280385, 1659162518465024002] 
+2023-10-19 17:26:59.505   --- [  XNIO-1 task-1]  : ==>  Preparing: SELECT id, workspace_id, staff_id, is_contact, create_time, is_delete FROM health_workspace_staff WHERE is_delete = 0 AND (workspace_id IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)) 
+2023-10-19 17:26:59.506   --- [ XNIO-1 task-30]  : <==      Total: 5 
+2023-10-19 17:26:59.507   --- [ XNIO-1 task-30]  : --------------------------------------------- 
+2023-10-19 17:26:59.507   --- [ XNIO-1 task-30]  : 17066083596185231371 
+2023-10-19 17:26:59.507   --- [ XNIO-1 task-30]  : --------------------------------------------- 
+2023-10-19 17:26:59.507   --- [ XNIO-1 task-30]  : 17104693096685486090 
+2023-10-19 17:26:59.507   --- [ XNIO-1 task-30]  : --------------------------------------------- 
+2023-10-19 17:26:59.507   --- [ XNIO-1 task-30]  : 17105695181174456341 
+2023-10-19 17:26:59.507   --- [ XNIO-1 task-30]  : --------------------------------------------- 
+2023-10-19 17:26:59.507   --- [ XNIO-1 task-30]  : 17115658644505436170 
+2023-10-19 17:26:59.507   --- [ XNIO-1 task-30]  : --------------------------------------------- 
+2023-10-19 17:26:59.507   --- [ XNIO-1 task-30]  : 17141711905430077450 
+2023-10-19 17:26:59.510   --- [ XNIO-1 task-30]  : ==>  Preparing: SELECT id, user_id, workspace_id, source, create_by, create_time, is_delete, activate, program_num, assessment_num, basic_send_num, basic_write_num, flow_form_send_num, flow_form_write_num, assessment_form_send_num, assessment_form_write_num, other_form_send_num, other_form_write_num, open_id, monitor_time FROM health_workspace_user WHERE is_delete = 0 AND (user_id IN (?, ?, ?, ?, ?, ?)) 
+2023-10-19 17:26:59.510   --- [ XNIO-1 task-30]  : ==> Parameters: 1714919556734017538(String), 1714171190543007745(String), 1711565864450543617(String), 1710569518117445634(String), 1710469309668548609(String), 1706608359618523137(String) 
+2023-10-19 17:26:59.512   --- [ XNIO-1 task-31]  : ==>  Preparing: SELECT id, workspace_id, type, limit_begin_time, limit_end_time, create_by, create_time, is_delete, org_id FROM health_workspace_accept WHERE is_delete = 0 AND (workspace_id IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)) 
+2023-10-19 17:26:59.513   --- [ XNIO-1 task-31]  : ==> Parameters: 1704010352619974657(String), 1700045575715835905(String), 1698884943750770689(String), 1698884565017702401(String), 1691016364644773889(String), 1690998990726115329(String), 1690988650445549570(String), 1688389229232672769(String), 1686973736814792706(String), 1685995961425735682(String) 
+2023-10-19 17:26:59.514   --- [  XNIO-1 task-1]  : ==> Parameters: 1711987963531116546(String), 1710569403818467330(String), 1710567946167803905(String), 1706584653525561345(String), 1706568057637711873(String), 1706567954092929025(String), 1706475098992951298(String), 1706196929043775490(String), 1704010542143795201(String), 1702207014438318082(String) 
+2023-10-19 17:26:59.516   --- [ XNIO-1 task-31]  : <==      Total: 30 
+2023-10-19 17:26:59.519   --- [ XNIO-1 task-31]  : ==>  Preparing: SELECT hwu.* FROM health_workspace_user hwu LEFT JOIN health_user hu ON hwu.user_id = hu.id WHERE hwu.workspace_id IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) AND hwu.is_delete = 0 AND hu.is_delete = 0 
+2023-10-19 17:26:59.519   --- [ XNIO-1 task-31]  : ==> Parameters: 1704010352619974657(String), 1700045575715835905(String), 1698884943750770689(String), 1698884565017702401(String), 1691016364644773889(String), 1690998990726115329(String), 1690988650445549570(String), 1688389229232672769(String), 1686973736814792706(String), 1685995961425735682(String) 
+2023-10-19 17:26:59.520   --- [  XNIO-1 task-1]  : <==      Total: 27 
+2023-10-19 17:26:59.522   --- [ XNIO-1 task-31]  : <==      Total: 16 
+2023-10-19 17:26:59.522   --- [ XNIO-1 task-30]  : <==      Total: 6 
+2023-10-19 17:26:59.528   --- [ XNIO-1 task-30]  : ==>  Preparing: SELECT id, account_id, mobile, id_card, status, name, health_source, sex, org_id, company_name, company_id, third_id, create_time, create_by, is_delete, active_status, questionnaire_status, questionnaire_time, phone_status, health_report_time, house_report_time, file_report_time, hand_report_time, health_create_status, remark, physical_notify_time, last_evaluation_time, update_time FROM health_user WHERE is_delete = 0 AND (id IN (?, ?, ?, ?, ?, ?)) 
+2023-10-19 17:26:59.531   --- [  XNIO-1 task-1]  : 获取keys:[1645705674207920129, 1665976151150006274, 1429985532965228545, 1659162822677893121, 1645596615802748929, 1685884527673200641, 1379984341899280385, 1659162518465024002, 1648128989547466753] 
+2023-10-19 17:26:59.533   --- [ XNIO-1 task-30]  : ==> Parameters: 1714919556734017538(String), 1714171190543007745(String), 1711565864450543617(String), 1710569518117445634(String), 1710469309668548609(String), 1706608359618523137(String) 
+2023-10-19 17:26:59.540   --- [ XNIO-1 task-30]  : <==      Total: 6 
+2023-10-19 17:26:59.544   --- [ XNIO-1 task-30]  : ======post===http://gf-label-srv-debug.sch:31602/reptlabel/api/reptlabel/latest=====>{"orgId":"81005726","idCards":["140214197908128963","220322198410042935","372922199310012511","350525199902079949","372922199310173526","510521198912054374"]} 
+2023-10-19 17:26:59.565   --- [  XNIO-1 task-1]  : ==>  Preparing: SELECT id, workspace_id, type, limit_begin_time, limit_end_time, create_by, create_time, is_delete, org_id FROM health_workspace_accept WHERE is_delete = 0 AND (workspace_id IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)) 
+2023-10-19 17:26:59.566   --- [  XNIO-1 task-1]  : ==> Parameters: 1711987963531116546(String), 1710569403818467330(String), 1710567946167803905(String), 1706584653525561345(String), 1706568057637711873(String), 1706567954092929025(String), 1706475098992951298(String), 1706196929043775490(String), 1704010542143795201(String), 1702207014438318082(String) 
+2023-10-19 17:26:59.568   --- [  XNIO-1 task-1]  : <==      Total: 30 
+2023-10-19 17:26:59.570   --- [ XNIO-1 task-30]  : ======post========>{"msg":"获取成功","code":0,"mcode":"9999","data":{"350525199902079949":[{"labelId":"1635910771924025345","label":"测试230315"}],"220322198410042935":[{"labelId":"1635910771924025345","label":"测试230315"}],"372922199310012511":[{"labelId":"1714450884521385985","label":"体脂异常20231018"}]}} 
+2023-10-19 17:26:59.572   --- [  XNIO-1 task-1]  : ==>  Preparing: SELECT hwu.* FROM health_workspace_user hwu LEFT JOIN health_user hu ON hwu.user_id = hu.id WHERE hwu.workspace_id IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) AND hwu.is_delete = 0 AND hu.is_delete = 0 
+2023-10-19 17:26:59.573   --- [ XNIO-1 task-30]  : ==>  Preparing: SELECT a.id, a.user_id, a.report_time FROM health_assessment_report a INNER JOIN (SELECT user_id, max(report_time) 'maxtime' FROM health_assessment_report WHERE report_time IS NOT NULL AND user_id IN (?, ?, ?, ?, ?, ?) GROUP BY user_id) b ON a.user_id = b.user_id AND a.report_time = b.maxtime 
+2023-10-19 17:26:59.574   --- [ XNIO-1 task-30]  : ==> Parameters: 1714919556734017538(String), 1714171190543007745(String), 1711565864450543617(String), 1710569518117445634(String), 1710469309668548609(String), 1706608359618523137(String) 
+2023-10-19 17:26:59.577   --- [ XNIO-1 task-30]  : <==      Total: 5 
+2023-10-19 17:26:59.588   --- [  XNIO-1 task-1]  : ==> Parameters: 1711987963531116546(String), 1710569403818467330(String), 1710567946167803905(String), 1706584653525561345(String), 1706568057637711873(String), 1706567954092929025(String), 1706475098992951298(String), 1706196929043775490(String), 1704010542143795201(String), 1702207014438318082(String) 
+2023-10-19 17:26:59.590   --- [ XNIO-1 task-30]  : ==>  Preparing: SELECT hret.report_id, ht.id AS tagId, ht.name AS tagName FROM health_report_eval_tag hret LEFT JOIN health_tags ht ON hret.tag_id = ht.id WHERE 1 = 1 AND hret.report_id IN (?, ?, ?, ?, ?) AND ht.type IN (3, 4) AND ht.is_delete = 0 AND hret.is_delete = 0 
+2023-10-19 17:26:59.590   --- [  XNIO-1 task-1]  : <==      Total: 15 
+2023-10-19 17:26:59.593   --- [ XNIO-1 task-30]  : ==> Parameters: 1710463481079160833(String), 1712014158314356738(String), 1714467602522206209(String), 1711565865054523394(String), 1714927829029773314(String) 
+2023-10-19 17:26:59.594   --- [ XNIO-1 task-30]  : <==      Total: 6 
+2023-10-19 17:26:59.597   --- [ XNIO-1 task-30]  : ==>  Preparing: SELECT ut.user_id, t.name FROM health_user_tag ut, health_tags t WHERE t.id = ut.tag_id AND ut.is_delete = 0 AND t.enable = 1 AND t.is_delete = 0 AND t.type = ? AND ut.user_id IN (?, ?, ?, ?, ?, ?) AND t.org_id = ? 
+2023-10-19 17:26:59.598   --- [ XNIO-1 task-30]  : ==> Parameters: 2(Integer), 1714919556734017538(String), 1714171190543007745(String), 1711565864450543617(String), 1710569518117445634(String), 1710469309668548609(String), 1706608359618523137(String), 81005726(Integer) 
+2023-10-19 17:26:59.600   --- [ XNIO-1 task-30]  : <==      Total: 6 
+2023-10-19 17:26:59.603   --- [ XNIO-1 task-30]  : ==>  Preparing: SELECT id, user_id, org_id, type, name, bsh_write_id, workspace_id, company_id, content, confirmed, confirmer, confirmer_id, confirm_remark, is_delete, create_by, create_time, callback_time, is_callback FROM health_questionnaire WHERE is_delete = 0 AND (user_id IN (?, ?, ?, ?, ?, ?)) 
+2023-10-19 17:26:59.603   --- [ XNIO-1 task-30]  : ==> Parameters: 1714919556734017538(String), 1714171190543007745(String), 1711565864450543617(String), 1710569518117445634(String), 1710469309668548609(String), 1706608359618523137(String) 
+2023-10-19 17:26:59.606   --- [ XNIO-1 task-30]  : <==      Total: 26 
+2023-10-19 17:26:59.608   --- [ XNIO-1 task-30]  : 获取keys:[null, 1645705674207920129, 1429985532965228545, 1685884527673200641] 
+2023-10-19 17:27:00.016   --- [ XNIO-1 task-32]  : 【发送评估报告微信提醒】开始==========>2023-10-19 17:27:00 
+2023-10-19 17:27:00.021   --- [  XNIO-1 task-2]  : ==>  Preparing: SELECT COUNT(1) FROM health_staff_excel_task_info WHERE is_delete = 0 AND (status = ?) 
+2023-10-19 17:27:00.022   --- [  XNIO-1 task-2]  : ==> Parameters: 0(Integer) 
+2023-10-19 17:27:00.023   --- [ XNIO-1 task-32]  : ==>  Preparing: SELECT id, user_id, apply_id, apply_id_pre, type, company_id, workspace_id, send_time, write_time, report_time, suspend_report, report, state, content, interpretation, create_by, is_delete, error_state, communicate_type, communicate_user, communicate_info FROM health_assessment_report WHERE is_delete = 0 AND (report_time IS NULL AND suspend_report = ? AND state = ? AND report IS NOT NULL AND report <> ? AND write_time < ?) 
+2023-10-19 17:27:00.024   --- [ XNIO-1 task-32]  : ==> Parameters: 0(Integer), 2(Integer), (String), 2023-10-19T17:22:00.016(LocalDateTime) 
+2023-10-19 17:27:00.025   --- [  XNIO-1 task-4]  : ==>  Preparing: SELECT id, program_id, user_id, plan_exe_time, actual_exe_time, status, remark, staff_id, org_id, reason, plan_time_value, plan_time_unit, plan_time, intervene_modus, intervene_category, level, msg_template_key, content, create_time, create_by, is_delete, business_id, workspace_id FROM health_intervene_task WHERE is_delete = 0 AND (status = ? AND plan_exe_time < ? AND intervene_modus IN (?, ?, ?, ?, ?)) 
+2023-10-19 17:27:00.026   --- [  XNIO-1 task-4]  : ==> Parameters: 2(Integer), 2023-10-19 17:27:00.022(Timestamp), 2(String), 3(String), 5(String), 8(String), 6(String) 
+2023-10-19 17:27:00.031   --- [  XNIO-1 task-4]  : <==      Total: 0 
+2023-10-19 17:27:00.033   --- [ XNIO-1 task-32]  : <==      Total: 0 
+2023-10-19 17:27:03.291   --- [ister.base_8848]  : get changedGroupKeys:[] 
